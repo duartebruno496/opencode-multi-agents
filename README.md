@@ -34,39 +34,60 @@ Usuário → Tech Lead → Architect → Data Engineer → UI/UX → Backend →
 | 11 | **DevOps** | Configura CI/CD e deploy |
 | 12 | **Documentation** | Gera documentação |
 
-## Instalação
+## 🚀 Começando Agora (3 passos)
 
-### Opção 1: GitHub Template (Recomendado)
+### Passo 1: Gitpod ou Codespaces (Recomendado)
 
-1. Clique em "Use this template" no GitHub
-2. Clone o repositório criado
-3. Execute o setup
+Use **GitHub Codespaces** diretamente:
 
-### Opção 2: Script de Instalação
+```
+1. Clique em "Use this template" → "Create new repository"
+2. Abra o repositório → clique em "Code" → "Codespaces" → "Create codespace"
+3. O ambiente já instala o opencode automaticamente
+4. No terminal, execute:
+```
 
 ```bash
-# Clonar repositório
+./start.sh
+```
+
+### Passo 2: Local
+
+```bash
+# 1. Clonar
 git clone https://github.com/duartebruno496/opencode-multi-agents.git
 cd opencode-multi-agents
 
-# Executar instalação
+# 2. Tornar scripts executáveis
+chmod +x start.sh install.sh
+
+# 3. Iniciar (valida ambiente e abre o opencode com instruções)
+./start.sh
+```
+
+### Passo 3: Instalar em um projeto existente
+
+```bash
 ./install.sh /caminho/do/seu/projeto
 ```
 
-### Opção 3: Instalação Manual
+---
 
-```bash
-# Copiar arquivos para seu projeto
-cp -r .opencode/ /caminho/do/seu/projeto/
-cp opencode.json /caminho/do/seu/projeto/
-cp .env.example /caminho/do/seu/projeto/
+## ⚠️ IMPORTANTE: Como usar os /comandos
+
+Os comandos como `/setup`, `/start-project` são digitados **DENTRO da interface do opencode**, **NÃO** no terminal bash.
+
+```
+❌ ERRA DO:  bash$ /setup            ← não funciona!
+✅ CORRETO:  bash$ ./start.sh        ← abre o opencode
+             opencode> /setup        ← digite dentro do opencode
 ```
 
 ## Configuração
 
 ### 1. Configurar Ambiente
 
-Execute o comando de setup no opencode:
+Dentro do opencode, execute:
 
 ```
 /setup
@@ -77,9 +98,11 @@ O Setup Agent irá:
 - Coletar sua API key
 - Configurar o modelo
 - Validar a conexão
-- Gerar os arquivos necessários
+- Gerar os arquivos necessários (`.env`, `.gitignore`)
 
 ### 2. Iniciar Projeto
+
+Dentro do opencode, execute:
 
 ```
 /start-project "Sistema de gestão escolar para escolas médias"
@@ -198,6 +221,11 @@ O Tech Lead irá:
     ├── database-design/
     ├── security-best-practices/
     └── testing-strategies/
+.devcontainer/       # Codespaces (ambiente pronto)
+├── devcontainer.json
+└── setup.sh
+install.sh           # Instala em outro projeto
+start.sh             # Inicia com guia interativo
 ```
 
 ## Contribuição
