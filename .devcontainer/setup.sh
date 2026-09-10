@@ -85,4 +85,5 @@ echo
 echo -e "  ${YELLOW}IMPORTANTE:${NC}"
 echo -e "  O script vai abrir o opencode para você."
 echo -e "  DENTRO dele, digite ${CYAN}/setup${NC} primeiro."
+echo -e "  Padrão: modelo gratuito (sem API key)."
 echo

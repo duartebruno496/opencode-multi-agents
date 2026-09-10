@@ -99,26 +99,24 @@ check_config() {
     print_success "configuração encontrada"
 }
 
-# Verificar se o .env está configurado
+# Verificar se o .env está configurado (opcional com modelo gratuito)
 check_env() {
     if [ ! -f ".env" ]; then
-        print_warning "Arquivo .env não encontrado."
+        print_info "Arquivo .env não encontrado (ok se usar modelo gratuito)"
         return 1
     fi
     
-    if ! grep -q "OPENCODE_API_KEY=" .env 2>/dev/null || grep -q "OPENCODE_API_KEY=$" .env 2>/dev/null || grep -q "OPENCODE_API_KEY=sua-chave-aqui" .env 2>/dev/null; then
-        print_warning "API Key ainda não configurada."
-        return 1
+    # Verificar se tem API key configurada (opcional)
+    if grep -q "OPENCODE_API_KEY=" .env 2>/dev/null && ! grep -q "OPENCODE_API_KEY=$" .env 2>/dev/null && ! grep -q "OPENCODE_API_KEY=sua-chave-aqui" .env 2>/dev/null; then
+        local key
+        key=$(grep "^OPENCODE_API_KEY=" .env | cut -d'=' -f2-)
+        if [ ${#key} -ge 20 ]; then
+            print_success "API key configurada"
+            return 0
+        fi
     fi
     
-    # Validar se a key tem formato plausível
-    local key
-    key=$(grep "^OPENCODE_API_KEY=" .env | cut -d'=' -f2-)
-    if [ ${#key} -lt 20 ]; then
-        print_warning "API Key parece inválida (muito curta)."
-        return 1
-    fi
-    
+    print_info "Usando modelo gratuito (nenhuma API key necessária)"
     return 0
 }
 
@@ -166,8 +164,8 @@ show_help() {
     echo -e "${BLUE}═══════════════════════════════════════════${NC}"
     echo
     if [ "$1" = "first" ]; then
-        echo -e "${YELLOW}→ Você ainda não configurou a API key.${NC}"
-        echo -e "  Digite ${GREEN}/setup${NC} logo ao entrar. É o primeiro passo."
+        echo -e "${YELLOW}→ Execute ${GREEN}/setup${YELLOW} ao entrar para escolher seu modelo.${NC}"
+        echo -e "  Padrão: modelo gratuito (sem API key). Opções pagas disponíveis."
         echo
     fi
 }

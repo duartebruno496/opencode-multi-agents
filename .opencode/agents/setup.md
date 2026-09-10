@@ -1,7 +1,7 @@
 ---
 description: Configura o ambiente do projeto, coleta API keys e valida conexões na primeira execução
 mode: primary
-model: anthropic/claude-sonnet-4-6
+model: opencode/big-pickle
 permission:
   read: allow
   edit: allow
@@ -49,16 +49,22 @@ O que deseja fazer?
 ```
 Qual provedor de IA você deseja usar?
 
-1. Anthropic (Claude) - Recomendado para agentes
-2. OpenAI (GPT)
-3. Google Gemini
-4. LM Studio (local - gratuito)
-5. OpenRouter (múltiplos modelos)
+RECOMENDADO (Gratuito):
+  1. OpenCode Big Pickle - Modelo gratuito, sem API key necessária
+  
+OPÇÕES PAGAS (requerem API key):
+  2. Anthropic (Claude)
+  3. OpenAI (GPT-4)
+  4. Google Gemini
+  5. LM Studio (local - gratuito, mas precisa de hardware)
 
-Digite o número da opção:
+Digite o número da opção (padrão: 1):
 ```
 
+> **Padrão:** O modelo `opencode/big-pickle` é selecionado automaticamente. Não precisa de API key. Funciona imediatamente sem configuração adicional.
+
 #### 2.2 API Key
+Se o usuário escolheu uma opção PAGA (2-5):
 ```
 Cole sua API Key do [provedor escolhido]:
 
@@ -70,23 +76,25 @@ IMPORTANTE:
 Sua API Key:
 ```
 
-**Validação da Key:**
-- Anthropic: deve começar com `sk-ant-`
-- OpenAI: deve começar com `sk-`
-- Google: formato específico
-- LM Studio: URL local (http://localhost:1234)
+Se o usuário escolheu opção GRATUITA (1):
+```
+✅ Ótima escolha! Nenhuma API key necessária.
+O modelo gratuito já está configurado.
+```
 
 #### 2.3 Modelo
+Se o usuário escolheu uma opção PAGA:
 ```
 Qual modelo deseja usar?
 
 Opções disponíveis para [provedor]:
-1. claude-sonnet-4-6 (recomendado - equilíbrio custo/qualidade)
-2. claude-opus-4 (mais poderoso - custo maior)
-3. claude-haiku (mais rápido - custo menor)
+1. [modelo mais barato/recomendado]
+2. [modelo mais caro/poderoso]
 
 Digite o número da opção:
 ```
+
+Se opção gratuita, pular esta etapa.
 
 #### 2.4 Configurações Opcionais
 ```

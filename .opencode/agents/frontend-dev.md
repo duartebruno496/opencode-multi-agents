@@ -1,7 +1,7 @@
 ---
 description: Implementa a interface do usuário com React, Angular, Vue ou stack moderna
 mode: subagent
-model: anthropic/claude-sonnet-4-6
+model: opencode/big-pickle
 permission:
   read: allow
   edit: allow

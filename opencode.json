@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "${OPENCODE_MODEL}",
+  "model": "opencode/big-pickle",
   "username": "multi-agents-user",
   "share": "manual",
   "autoupdate": true,
@@ -12,7 +12,7 @@
     "tech-lead": {
       "description": "Orquestra todos os agentes do projeto, coordena fluxo de trabalho e toma decisões de arquitetura",
       "mode": "primary",
-      "model": "anthropic/claude-sonnet-4-6",
+      "model": "opencode/big-pickle",
       "permission": {
         "read": "allow",
         "edit": "deny",
@@ -25,7 +25,7 @@
     "architect": {
       "description": "Pesquisa e define a melhor arquitetura, tecnologias, custos e tempo estimado para o projeto",
       "mode": "subagent",
-      "model": "anthropic/claude-sonnet-4-6",
+      "model": "opencode/big-pickle",
       "permission": {
         "read": "allow",
         "edit": "deny",
@@ -40,7 +40,7 @@
     "data-engineer": {
       "description": "Modela banco de dados, cria queries, define schema e gerencia dados do projeto",
       "mode": "subagent",
-      "model": "anthropic/claude-sonnet-4-6",
+      "model": "opencode/big-pickle",
       "permission": {
         "read": "allow",
         "edit": "allow",
@@ -53,7 +53,7 @@
     "ui-ux": {
       "description": "Cria wireframes, protótipos e define a experiência do usuário para o projeto",
       "mode": "subagent",
-      "model": "anthropic/claude-sonnet-4-6",
+      "model": "opencode/big-pickle",
       "permission": {
         "read": "allow",
         "edit": "allow",
@@ -67,7 +67,7 @@
     "backend-dev": {
       "description": "Implementa toda a lógica do servidor, APIs, autenticação e integrações",
       "mode": "subagent",
-      "model": "anthropic/claude-sonnet-4-6",
+      "model": "opencode/big-pickle",
       "permission": {
         "read": "allow",
         "edit": "allow",
@@ -81,7 +81,7 @@
     "backend-reviewer": {
       "description": "Revisa código backend, identifica melhorias, problemas de segurança e boas práticas",
       "mode": "subagent",
-      "model": "anthropic/claude-sonnet-4-6",
+      "model": "opencode/big-pickle",
       "permission": {
         "read": "allow",
         "edit": "allow",
@@ -94,7 +94,7 @@
     "frontend-dev": {
       "description": "Implementa a interface do usuário com React, Angular, Vue ou stack moderna",
       "mode": "subagent",
-      "model": "anthropic/claude-sonnet-4-6",
+      "model": "opencode/big-pickle",
       "permission": {
         "read": "allow",
         "edit": "allow",
@@ -108,7 +108,7 @@
     "frontend-reviewer": {
       "description": "Revisa código frontend, identifica melhorias e garante boas práticas de UI",
       "mode": "subagent",
-      "model": "anthropic/claude-sonnet-4-6",
+      "model": "opencode/big-pickle",
       "permission": {
         "read": "allow",
         "edit": "allow",
@@ -121,7 +121,7 @@
     "security": {
       "description": "Auditoria de segurança, pen tests, proteção contra vulnerabilidades e compliance",
       "mode": "subagent",
-      "model": "anthropic/claude-sonnet-4-6",
+      "model": "opencode/big-pickle",
       "permission": {
         "read": "allow",
         "edit": "allow",
@@ -134,7 +134,7 @@
     "documentation": {
       "description": "Cria e mantém documentação completa do projeto para desenvolvedores e usuários",
       "mode": "subagent",
-      "model": "anthropic/claude-sonnet-4-6",
+      "model": "opencode/big-pickle",
       "permission": {
         "read": "allow",
         "edit": "allow",
@@ -147,7 +147,7 @@
     "devops": {
       "description": "Configura CI/CD, Docker, infraestrutura cloud e processos de deploy",
       "mode": "subagent",
-      "model": "anthropic/claude-sonnet-4-6",
+      "model": "opencode/big-pickle",
       "permission": {
         "read": "allow",
         "edit": "allow",
@@ -161,7 +161,7 @@
     "qa-engineer": {
       "description": "Cria e executa testes automatizados unitários, de integração e E2E",
       "mode": "subagent",
-      "model": "anthropic/claude-sonnet-4-6",
+      "model": "opencode/big-pickle",
       "permission": {
         "read": "allow",
         "edit": "allow",
@@ -174,7 +174,7 @@
     "setup": {
       "description": "Configura o ambiente do projeto, coleta API keys e valida conexões na primeira execução",
       "mode": "primary",
-      "model": "anthropic/claude-sonnet-4-6",
+      "model": "opencode/big-pickle",
       "permission": {
         "read": "allow",
         "edit": "allow",

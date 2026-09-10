@@ -1,7 +1,7 @@
 ---
 description: Implementa toda a lógica do servidor, APIs, autenticação e integrações
 mode: subagent
-model: anthropic/claude-sonnet-4-6
+model: opencode/big-pickle
 permission:
   read: allow
   edit: allow

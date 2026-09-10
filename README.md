@@ -122,11 +122,13 @@ Dentro do opencode, execute:
 ```
 
 O Setup Agent irá:
-- Perguntar qual provedor de IA usar (Anthropic, OpenAI, etc)
-- Coletar sua API key
-- Configurar o modelo
+- Perguntar qual modelo deseja usar
+- **Padrão:** modelo gratuito `opencode/big-pickle` (nenhuma API key necessária)
+- Se quiser modelos pagos (Anthropic, OpenAI, etc), configure a API key
 - Validar a conexão
 - Gerar os arquivos necessários (`.env`, `.gitignore`)
+
+> 💡 **Sem API key? Sem problema!** O modelo gratuito já funciona para começar.
 
 ### 2. Iniciar Projeto
 
@@ -146,7 +148,7 @@ O Tech Lead irá:
 
 | Comando | Descrição |
 |---------|-----------|
-| `/setup` | Configurar ambiente (API keys) |
+| `/setup` | Configurar ambiente (gratuito ou pago) |
 | `/start-project` | Iniciar novo projeto |
 | `/full-cycle` | Ciclo completo automatizado |
 | `/review-code` | Revisão de código |
@@ -205,13 +207,13 @@ O Tech Lead irá:
 
 ## Provedores Suportados
 
-| Provedor | Modelos | Status |
-|----------|---------|--------|
-| Anthropic | Claude | ✅ Recomendado |
-| OpenAI | GPT-4 | ✅ |
-| Google | Gemini | ✅ |
-| LM Studio | Local | ✅ Gratuito |
-| OpenRouter | Múltiplos | ✅ |
+| Provedor | Modelos | API Key | Status |
+|----------|---------|---------|--------|
+| OpenCode | big-pickle | Não necessária | ✅ **Padrão (Gratuito)** |
+| Anthropic | Claude | Necessária | ✅ Pago |
+| OpenAI | GPT-4 | Necessária | ✅ Pago |
+| Google | Gemini | Necessária | ✅ Pago |
+| LM Studio | Local | Não necessária | ✅ Gratuito (requer hardware) |
 
 ## Estrutura do Projeto
 
@@ -278,4 +280,3 @@ MIT - Veja [LICENSE](LICENSE) para mais detalhes.
 
 - Equipe do opencode pela ferramenta incrível
 - Comunidade open source
-- [ANTHROPIC](https://anthropic.com) pelos modelos Claude

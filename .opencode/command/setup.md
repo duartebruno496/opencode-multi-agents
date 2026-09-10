@@ -27,20 +27,22 @@ Você: /setup
 Setup Agent: Olá! Sou o Setup Agent. Vou configurar seu ambiente.
 
 Qual provedor de IA você deseja usar?
-1. Anthropic (Claude) - Recomendado
-2. OpenAI (GPT)
-3. Google Gemini
+
+RECOMENDADO (Gratuito):
+  1. OpenCode Big Pickle - Modelo gratuito, sem API key
+  
+OPÇÕES PAGAS (requerem API key):
+  2. Anthropic (Claude)
+  3. OpenAI (GPT-4)
+  4. Google Gemini
 
 Você: 1
 
-Setup Agent: Cole sua API Key do Anthropic:
-
-Você: sk-ant-api03-xxxxx...
-
-Setup Agent: ✅ Configuração concluída!
+Setup Agent: ✅ Ótima escolha! Nenhuma API key necessária.
+O modelo gratuito já está configurado.
 
 Arquivos criados:
-- .env (configurações sensíveis)
+- .env (configurações)
 - .gitignore (proteção de arquivos)
 
 Próximo passo: /start-project "descrição do projeto"

@@ -1,7 +1,7 @@
 ---
 description: Auditoria de segurança, pen tests, proteção contra vulnerabilidades e compliance
 mode: subagent
-model: anthropic/claude-sonnet-4-6
+model: opencode/big-pickle
 permission:
   read: allow
   edit: allow

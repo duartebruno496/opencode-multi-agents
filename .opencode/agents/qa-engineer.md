@@ -1,7 +1,7 @@
 ---
 description: Cria e executa testes automatizados unitários, de integração e E2E
 mode: subagent
-model: anthropic/claude-sonnet-4-6
+model: opencode/big-pickle
 permission:
   read: allow
   edit: allow

@@ -1,7 +1,7 @@
 ---
 description: Revisa código frontend, identifica melhorias e garante boas práticas de UI
 mode: subagent
-model: anthropic/claude-sonnet-4-6
+model: opencode/big-pickle
 permission:
   read: allow
   edit: allow

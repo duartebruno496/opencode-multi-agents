@@ -1,7 +1,7 @@
 ---
 description: Modela banco de dados, cria queries, define schema e gerencia dados do projeto
 mode: subagent
-model: anthropic/claude-sonnet-4-6
+model: opencode/big-pickle
 permission:
   read: allow
   edit: allow

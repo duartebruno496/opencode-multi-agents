@@ -1,7 +1,7 @@
 ---
 description: Cria e mantém documentação completa do projeto para desenvolvedores e usuários
 mode: subagent
-model: anthropic/claude-sonnet-4-6
+model: opencode/big-pickle
 permission:
   read: allow
   edit: allow

@@ -1,7 +1,7 @@
 ---
 description: Pesquisa e define a melhor arquitetura, tecnologias, custos e tempo estimado para o projeto
 mode: subagent
-model: anthropic/claude-sonnet-4-6
+model: opencode/big-pickle
 permission:
   read: allow
   edit: deny

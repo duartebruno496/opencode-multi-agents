@@ -1,7 +1,7 @@
 ---
 description: Orquestra todos os agentes do projeto, coordena fluxo de trabalho e toma decisões de arquitetura
 mode: primary
-model: anthropic/claude-sonnet-4-6
+model: opencode/big-pickle
 permission:
   read: allow
   edit: deny
