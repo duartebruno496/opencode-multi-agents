@@ -24,6 +24,7 @@ show_banner() {
     echo
     echo -e "${CYAN}=============================================${NC}"
     echo -e "${CYAN}  opencode-multi-agents v0.1.0${NC}"
+    echo -e "${CYAN}  Linux / Mac${NC}"
     echo -e "${CYAN}=============================================${NC}"
     echo
 }

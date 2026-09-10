@@ -20,6 +20,7 @@ function Show-Banner {
     Write-Host ""
     Write-Host "=============================================" -ForegroundColor $Cyan
     Write-Host "  opencode-multi-agents v0.1.0" -ForegroundColor $Cyan
+    Write-Host "  Windows PowerShell" -ForegroundColor $Cyan
     Write-Host "=============================================" -ForegroundColor $Cyan
     Write-Host ""
 }
@@ -183,6 +184,7 @@ function Show-Help {
     Write-Host "  → Não recebe atualizações automáticas"
     Write-Host "  → Para copiar uma versão nova, rode: " -NoNewline; Write-Host ".\install.ps1" -ForegroundColor $Green
     Write-Host ""
+    Write-Host "(No Linux/Mac, use ./start.sh e ./install.sh)" -ForegroundColor $Blue
 
     if ($Mode -eq "first") {
         Write-Host "→ Execute " -NoNewline; Write-Host "/setup" -ForegroundColor $Green -NoNewline; Write-Host " ao entrar para escolher seu modelo." -ForegroundColor $Yellow
