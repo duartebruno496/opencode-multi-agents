@@ -1,0 +1,196 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "${OPENCODE_MODEL}",
+  "username": "multi-agents-user",
+  "share": "manual",
+  "autoupdate": true,
+  "instructions": ["README.md"],
+  "skills": {
+    "paths": [".opencode/skills"]
+  },
+  "agent": {
+    "tech-lead": {
+      "description": "Orquestra todos os agentes do projeto, coordena fluxo de trabalho e toma decisões de arquitetura",
+      "mode": "primary",
+      "model": "anthropic/claude-sonnet-4-6",
+      "permission": {
+        "read": "allow",
+        "edit": "deny",
+        "bash": "deny",
+        "task": {
+          "*": "allow"
+        }
+      }
+    },
+    "architect": {
+      "description": "Pesquisa e define a melhor arquitetura, tecnologias, custos e tempo estimado para o projeto",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-6",
+      "permission": {
+        "read": "allow",
+        "edit": "deny",
+        "bash": "deny",
+        "task": {
+          "*": "deny",
+          "data-engineer": "allow",
+          "ui-ux": "allow"
+        }
+      }
+    },
+    "data-engineer": {
+      "description": "Modela banco de dados, cria queries, define schema e gerencia dados do projeto",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-6",
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "bash": "allow",
+        "task": {
+          "*": "deny"
+        }
+      }
+    },
+    "ui-ux": {
+      "description": "Cria wireframes, protótipos e define a experiência do usuário para o projeto",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-6",
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "bash": "deny",
+        "task": {
+          "*": "deny",
+          "frontend-dev": "allow"
+        }
+      }
+    },
+    "backend-dev": {
+      "description": "Implementa toda a lógica do servidor, APIs, autenticação e integrações",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-6",
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "bash": "allow",
+        "task": {
+          "*": "deny",
+          "backend-reviewer": "allow"
+        }
+      }
+    },
+    "backend-reviewer": {
+      "description": "Revisa código backend, identifica melhorias, problemas de segurança e boas práticas",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-6",
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "bash": "deny",
+        "task": {
+          "*": "deny"
+        }
+      }
+    },
+    "frontend-dev": {
+      "description": "Implementa a interface do usuário com React, Angular, Vue ou stack moderna",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-6",
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "bash": "allow",
+        "task": {
+          "*": "deny",
+          "frontend-reviewer": "allow"
+        }
+      }
+    },
+    "frontend-reviewer": {
+      "description": "Revisa código frontend, identifica melhorias e garante boas práticas de UI",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-6",
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "bash": "deny",
+        "task": {
+          "*": "deny"
+        }
+      }
+    },
+    "security": {
+      "description": "Auditoria de segurança, pen tests, proteção contra vulnerabilidades e compliance",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-6",
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "bash": "allow",
+        "task": {
+          "*": "deny"
+        }
+      }
+    },
+    "documentation": {
+      "description": "Cria e mantém documentação completa do projeto para desenvolvedores e usuários",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-6",
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "bash": "deny",
+        "task": {
+          "*": "deny"
+        }
+      }
+    },
+    "devops": {
+      "description": "Configura CI/CD, Docker, infraestrutura cloud e processos de deploy",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-6",
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "bash": "allow",
+        "task": {
+          "*": "deny",
+          "qa-engineer": "allow"
+        }
+      }
+    },
+    "qa-engineer": {
+      "description": "Cria e executa testes automatizados unitários, de integração e E2E",
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-6",
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "bash": "allow",
+        "task": {
+          "*": "deny"
+        }
+      }
+    },
+    "setup": {
+      "description": "Configura o ambiente do projeto, coleta API keys e valida conexões na primeira execução",
+      "mode": "primary",
+      "model": "anthropic/claude-sonnet-4-6",
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "bash": "allow",
+        "task": {
+          "*": "deny"
+        }
+      }
+    }
+  },
+  "permission": {
+    "read": "allow",
+    "edit": "ask",
+    "bash": "ask",
+    "task": {
+      "*": "ask"
+    }
+  }
+}
