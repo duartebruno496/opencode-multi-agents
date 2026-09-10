@@ -23,25 +23,25 @@ Write-Host "  opencode-multi-agents Installer (Windows)" -ForegroundColor $Cyan
 Write-Host "=============================================" -ForegroundColor $Cyan
 Write-Host ""
 
-# Verificar se está no diretório correto
+# Verificar se esta no diretorio correto
 if (-not (Test-Path ".opencode")) {
-    Print-Error "Diretório .opencode não encontrado!"
-    Print-Info "Execute este script na raiz do repositório opencode-multi-agents"
+    Print-Error "Diretorio .opencode nao encontrado!"
+    Print-Info "Execute este script na raiz do repositorio opencode-multi-agents"
     exit 1
 }
 
 Print-OK "Estrutura do projeto encontrada"
 Write-Host ""
 
-# Perguntar diretório de destino
-Write-Host "Diretório de instalação: $TargetDir" -ForegroundColor $Blue
-$confirm = Read-Host "Confirmar instalação? (S/n)"
+# Perguntar diretorio de destino
+Write-Host "Diretorio de instalacao: $TargetDir" -ForegroundColor $Blue
+$confirm = Read-Host "Confirmar instalacao? (S/n)"
 if ($confirm -eq "n" -or $confirm -eq "N") {
-    Print-Info "Instalação cancelada"
+    Print-Info "Instalacao cancelada"
     exit 0
 }
 
-# Criar diretório se não existir
+# Criar diretorio se nao existir
 if (-not (Test-Path $TargetDir)) {
     New-Item -ItemType Directory -Force -Path $TargetDir | Out-Null
 }
@@ -60,29 +60,29 @@ Copy-Item -Recurse -Force ".opencode\command" "$TargetDir\.opencode\"
 Print-Info "Copiando skills..."
 Copy-Item -Recurse -Force ".opencode\skills" "$TargetDir\.opencode\"
 
-# Copiar configuração
-Print-Info "Copiando configuração..."
+# Copiar configuracao
+Print-Info "Copiando configuracao..."
 Copy-Item -Force "opencode.json" "$TargetDir\"
 
 # Copiar scripts
 Print-Info "Copiando scripts..."
-Copy-Item -Force "start.ps1" "$TargetDir\" -ErrorAction SilentlyContinue
-Copy-Item -Force "start.sh" "$TargetDir\" -ErrorAction SilentlyContinue
+if (Test-Path "start.ps1") { Copy-Item -Force "start.ps1" "$TargetDir\" }
+if (Test-Path "start.sh")  { Copy-Item -Force "start.sh" "$TargetDir\" }
 
-# Copiar .gitignore (adicionar entradas se já existir)
+# Copiar .gitignore (adicionar entradas se ja existir)
 if (Test-Path "$TargetDir\.gitignore") {
     $gi = Get-Content "$TargetDir\.gitignore" -Raw
     if ($gi -notmatch "\.env") {
         Add-Content -Path "$TargetDir\.gitignore" -Value "`n# Configuracoes sensiveis`n.env`n.env.local`n.env.*.local`n.env.backup*"
     }
 } else {
-    Copy-Item -Force ".gitignore" "$TargetDir\"
+    if (Test-Path ".gitignore") { Copy-Item -Force ".gitignore" "$TargetDir\" }
 }
 
 # Copiar .env.example
 Copy-Item -Force ".env.example" "$TargetDir\"
 
-# Criar .env se não existir
+# Criar .env se nao existir
 if (-not (Test-Path "$TargetDir\.env")) {
     Copy-Item -Force ".env.example" "$TargetDir\.env"
     Print-Warn "Arquivo .env criado. Configure com /setup dentro do opencode!"
@@ -91,10 +91,10 @@ if (-not (Test-Path "$TargetDir\.env")) {
 Print-OK "Arquivos instalados com sucesso!"
 Write-Host ""
 
-# Instruções
-Write-Host "========================================" -ForegroundColor $Green
+# Instrucoes
+Write-Host "=============================================" -ForegroundColor $Green
 Write-Host "  Instalacao Concluida!" -ForegroundColor $Green
-Write-Host "========================================" -ForegroundColor $Green
+Write-Host "=============================================" -ForegroundColor $Green
 Write-Host ""
 Write-Host "  Proximos passos:" -ForegroundColor $Yellow
 Write-Host ""
