@@ -104,6 +104,19 @@ show_help() {
     echo "  /status          - Ver progresso"
     echo
     echo -e "${BLUE}═══════════════════════════════════════════${NC}"
+    echo -e "${BLUE}  MANTER ATUALIZADO${NC}"
+    echo -e "${BLUE}═══════════════════════════════════════════${NC}"
+    echo
+    echo -e "${CYAN}Se você fez FORK deste repositório:${NC}"
+    echo "  → No GitHub: clique em \"Sync fork\" para atualizar"
+    echo "  → No terminal:"
+    echo -e "      ${GREEN}git fetch upstream && git merge upstream/main${NC}"
+    echo
+    echo -e "${CYAN}Se usou \"Use this template\":${NC}"
+    echo "  → Não recebe atualizações automáticas"
+    echo "  → Para copiar uma versão nova, rode: ${GREEN}./install.sh${NC}"
+    echo
+    echo -e "${BLUE}═══════════════════════════════════════════${NC}"
     echo
     if [ "$1" = "first" ]; then
         echo -e "${YELLOW}→ Você ainda não configurou a API key.${NC}"

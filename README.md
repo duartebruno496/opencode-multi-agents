@@ -34,38 +34,66 @@ Usuário → Tech Lead → Architect → Data Engineer → UI/UX → Backend →
 | 11 | **DevOps** | Configura CI/CD e deploy |
 | 12 | **Documentation** | Gera documentação |
 
-## 🚀 Começando Agora (3 passos)
+## 🚀 Começando Agora
 
-### Passo 1: Gitpod ou Codespaces (Recomendado)
+### 📌 O que escolher: Fork ou Template?
 
-Use **GitHub Codespaces** diretamente:
+Escolha de acordo com seu objetivo:
 
-```
-1. Clique em "Use this template" → "Create new repository"
-2. Abra o repositório → clique em "Code" → "Codespaces" → "Create codespace"
-3. O ambiente já instala o opencode automaticamente
-4. No terminal, execute:
-```
+| Situação | O que fazer | Por quê |
+|----------|-------------|---------|
+| **Testar / Acompanhar atualizações** | **Fork** | Mantém conexão com o original, sincroniza com 1 clique |
+| **Criar um projeto novo independente** | **Use this template** | Repo limpo, sem vínculo, pronto para personalizar |
+| **Adicionar num projeto que já existe** | **./install.sh** | Copia só os arquivos necessários |
+
+---
+
+### Opção 1: Fork (para testar e acompanhar atualizações)
+
+Recomendado para quem quer testar o sistema, reportar bugs ou acompanhar melhorias.
 
 ```bash
-./start.sh
-```
+# 1. No GitHub, abra o repositório original e clique em "Fork"
+#    (marque "Copy the main branch only")
 
-### Passo 2: Local
-
-```bash
-# 1. Clonar
-git clone https://github.com/duartebruno496/opencode-multi-agents.git
+# 2. Clone o fork no Codespaces ou local
+git clone https://github.com/[seu-usuario]/opencode-multi-agents.git
 cd opencode-multi-agents
 
-# 2. Tornar scripts executáveis
-chmod +x start.sh install.sh
-
-# 3. Iniciar (valida ambiente e abre o opencode com instruções)
+# 3. Iniciar
 ./start.sh
 ```
 
-### Passo 3: Instalar em um projeto existente
+**Para atualizar** (quando houver versões novas):
+
+- **No GitHub:** clique em **"Sync fork"** no seu fork (1 clique)
+- **No Codespaces/terminal:**
+```bash
+git fetch upstream
+git merge upstream/main
+git push
+```
+
+---
+
+### Opção 2: Use this template (para projetos novos)
+
+Recomendado para quem quer iniciar um projeto do zero com os agentes prontos.
+
+```
+1. Acesse o repositório original
+2. Clique em "Use this template" → "Create a new repository"
+3. Escolha um nome para o seu projeto novo (ex: meu-saas)
+4. Abra o Codespaces ou clone localmente
+5. Execute ./start.sh
+```
+
+> ⚠️ Um repositório criado via template **não recebe atualizações automáticas**.
+> Se quiser as versões novas, terá que copiar manualmente ou usar `./install.sh`.
+
+---
+
+### Opção 3: Instalar em projeto existente
 
 ```bash
 ./install.sh /caminho/do/seu/projeto
