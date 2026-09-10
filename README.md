@@ -2,6 +2,13 @@
 
 12 agentes especializados para o [opencode](https://opencode.ai), trabalhando em colaboração para desenvolver projetos completos.
 
+![Release](https://img.shields.io/badge/release-v0.1.0-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Agents](https://img.shields.io/badge/agents-13-orange)
+![Commands](https://img.shields.io/badge/commands-12-purple)
+![Skills](https://img.shields.io/badge/skills-4-yellow)
+![Language](https://img.shields.io/badge/language-Portuguese--BR-brightgreen)
+
 ## Visão Geral
 
 Este pacote fornece um time completo de agentes de IA que colaboram automaticamente para criar projetos de software, desde a concepção até o deploy.
@@ -39,7 +46,7 @@ Usuário → Tech Lead → Architect → Data Engineer → UI/UX → Backend →
 
 ```bash
 # Clonar repositório
-git clone https://github.com/seu-usuario/opencode-multi-agents.git
+git clone https://github.com/duartebruno496/opencode-multi-agents.git
 cd opencode-multi-agents
 
 # Executar instalação
@@ -159,7 +166,7 @@ O Tech Lead irá:
 
 ```
 .opencode/
-├── agents/           # 12+1 agentes
+├── agents/           # 13 agentes
 │   ├── tech-lead.md
 │   ├── architect.md
 │   ├── data-engineer.md
@@ -208,10 +215,11 @@ MIT - Veja [LICENSE](LICENSE) para mais detalhes.
 ## Links Úteis
 
 - [opencode](https://opencode.ai) - Documentação oficial
-- [GitHub](https://github.com/anomalyco/opencode) - Código fonte
-- [Issues](https://github.com/anomalyco/opencode/issues) - Reportar bugs
+- [Repositório](https://github.com/duartebruno496/opencode-multi-agents) - Código fonte
+- [Issues](https://github.com/duartebruno496/opencode-multi-agents/issues) - Reportar bugs
 
 ## Agradecimentos
 
 - Equipe do opencode pela ferramenta incrível
 - Comunidade open source
+- [ANTHROPIC](https://anthropic.com) pelos modelos Claude
