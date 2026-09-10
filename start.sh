@@ -28,18 +28,65 @@ show_banner() {
     echo
 }
 
-# Verificar se o opencode está instalado
-check_opencode() {
-    if ! command -v opencode &> /dev/null; then
-        print_error "opencode não encontrado!"
+# Instalar o opencode automaticamente
+install_opencode() {
+    print_info "Instalando opencode (isto pode levar alguns segundos)..."
+    echo
+    
+    # Detecta arquitetura correta
+    local ARCH
+    case "$(uname -m)" in
+        x86_64)  ARCH="x86_64" ;;
+        aarch64|arm64) ARCH="aarch64" ;;
+        *)        ARCH="x86_64" ;;
+    esac
+    
+    # Baixa o binário no diretório local
+    mkdir -p .opencode/bin
+    local URL="https://opencode.ai/install"
+    
+    if curl -fsSL "$URL" | bash -e > /tmp/opencode-install.log 2>&1; then
+        # Se instalou no diretório padrão ~/.opencode
+        if [ -f "$HOME/.opencode/bin/opencode" ]; then
+            export PATH="$HOME/.opencode/bin:$PATH"
+            print_success "opencode instalado em ~/.opencode/bin/"
+        fi
+    else
+        print_error "Falha na instalação automática."
+        cat /tmp/opencode-install.log 2>/dev/null | tail -10
         echo
-        print_info "Instale o opencode com:"
+        print_info "Tente instalar manualmente:"
         echo -e "${YELLOW}  curl -fsSL https://opencode.ai/install | bash${NC}"
-        echo
-        print_info "Depois execute este script novamente."
         exit 1
     fi
-    print_success "opencode encontrado"
+}
+
+# Verificar se o opencode está disponível (instalando se necessário)
+check_opencode() {
+    # Verifica PATH
+    if command -v opencode &> /dev/null; then
+        print_success "opencode encontrado"
+        return 0
+    fi
+    
+    # Verifica diretórios comuns (no Codespaces o home é outro)
+    for dir in "$HOME/.opencode/bin" "$HOME/.local/bin" "/usr/local/bin"; do
+        if [ -x "$dir/opencode" ]; then
+            export PATH="$dir:$PATH"
+            print_success "opencode encontrado em $dir"
+            return 0
+        fi
+    done
+    
+    # Se não encontrou, tenta instalar automaticamente
+    install_opencode
+    
+    # Verifica se instalou
+    if ! command -v opencode &> /dev/null; then
+        print_error "Não foi possível iniciar o opencode."
+        exit 1
+    fi
+    print_success "opencode instalado com sucesso"
 }
 
 # Verificar se opencode.json existe
