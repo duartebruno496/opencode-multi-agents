@@ -44,7 +44,7 @@ Escolha de acordo com seu objetivo:
 |----------|-------------|---------|
 | **Testar / Acompanhar atualizações** | **Fork** | Mantém conexão com o original, sincroniza com 1 clique |
 | **Criar um projeto novo independente** | **Use this template** | Repo limpo, sem vínculo, pronto para personalizar |
-| **Adicionar num projeto que já existe** | **./install.sh** | Copia só os arquivos necessários |
+| **Adicionar num projeto que já existe** | **./install.sh** ou **.\install.ps1** | Copia só os arquivos necessários |
 
 ---
 
@@ -52,22 +52,37 @@ Escolha de acordo com seu objetivo:
 
 Recomendado para quem quer testar o sistema, reportar bugs ou acompanhar melhorias.
 
+**Linux / Mac:**
 ```bash
 # 1. No GitHub, abra o repositório original e clique em "Fork"
 #    (marque "Copy the main branch only")
 
-# 2. Clone o fork no Codespaces ou local
+# 2. Clone o fork
 git clone https://github.com/[seu-usuario]/opencode-multi-agents.git
 cd opencode-multi-agents
 
 # 3. Iniciar
+chmod +x start.sh
 ./start.sh
+```
+
+**Windows PowerShell:**
+```powershell
+# 1. No GitHub, abra o repositório original e clique em "Fork"
+#    (marque "Copy the main branch only")
+
+# 2. Clone o fork
+git clone https://github.com/[seu-usuario]/opencode-multi-agents.git
+cd opencode-multi-agents
+
+# 3. Iniciar
+.\start.ps1
 ```
 
 **Para atualizar** (quando houver versões novas):
 
 - **No GitHub:** clique em **"Sync fork"** no seu fork (1 clique)
-- **No Codespaces/terminal:**
+- **No terminal:**
 ```bash
 git fetch upstream
 git merge upstream/main
@@ -85,7 +100,7 @@ Recomendado para quem quer iniciar um projeto do zero com os agentes prontos.
 2. Clique em "Use this template" → "Create a new repository"
 3. Escolha um nome para o seu projeto novo (ex: meu-saas)
 4. Abra o Codespaces ou clone localmente
-5. Execute ./start.sh
+5. Execute: ./start.sh (Linux/Mac) ou .\start.ps1 (Windows)
 ```
 
 > ⚠️ Um repositório criado via template **não recebe atualizações automáticas**.
@@ -95,8 +110,14 @@ Recomendado para quem quer iniciar um projeto do zero com os agentes prontos.
 
 ### Opção 3: Instalar em projeto existente
 
+**Linux / Mac:**
 ```bash
 ./install.sh /caminho/do/seu/projeto
+```
+
+**Windows PowerShell:**
+```powershell
+.\install.ps1 -TargetDir "C:\caminho\do\seu\projeto"
 ```
 
 ---
@@ -254,8 +275,10 @@ O Tech Lead irá:
 .devcontainer/       # Codespaces (ambiente pronto)
 ├── devcontainer.json
 └── setup.sh
-install.sh           # Instala em outro projeto
-start.sh             # Inicia com guia interativo
+install.sh           # Instala em outro projeto (Linux/Mac)
+install.ps1          # Instala em outro projeto (Windows)
+start.sh             # Inicia com guia interativo (Linux/Mac)
+start.ps1            # Inicia com guia interativo (Windows)
 ```
 
 ## Contribuição
